@@ -1,0 +1,22 @@
+const mongoose = require("mongoose");
+const Role = require("../../app/models/role.model");
+//const Config = process.env
+
+async function connect() {
+  try {
+    //await mongoose.connect('mongodb://localhost:27017/dat_blog', {
+    await mongoose.connect(
+      " mongodb+srv://hoanghuy17101998:HIn17101998@@cluster0.kamj7.mongodb.net/test",
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+      }
+    );
+    console.log("connect db successfully!!");
+    initial();
+  } catch (error) {
+    console.log(error);
+  }
+}
+module.exports = { connect };
